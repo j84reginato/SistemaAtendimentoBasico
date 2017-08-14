@@ -1,0 +1,22 @@
+{
+    "name": "j84reginato/composer-php",
+    "description": "Composer PHP",
+    "authors": [
+        {
+            "name": "Jonatan Noronha Reginato",
+            "email": "noronha_reginato@hotmail.com"
+        }
+    ],
+    "require": {
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "core\\": "core/",
+            "database\\": "database/",
+            "controllers\\": "mvc/controllers/",
+            "models\\": "mvc/models/"
+        }
+    }
+}
