@@ -1,4 +1,13 @@
 RewriteEngine On
-RewriteCond %{SCRIPT_FILENAME} !-f
-RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?url=$1
+
+# A seguinte regra informa ao Apache que, se o nome do arquivo solicitado
+# existir, deve-se realizar o processamento.
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [QSA,L]
+
+# Os comandos seguintes reescrevem todas as chamadas para o arquivo index.php.
+RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+RewriteRule ^(.*) - [E=BASE:%1]
+RewriteRule ^(.*)$ %{ENV:BASE}/index.php?url=$1 [QSA,L]

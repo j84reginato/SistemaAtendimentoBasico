@@ -1,116 +1,202 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
-        <title><?php echo $this->title; ?></title>        
-        <base href="<?php echo APP_ROOT; ?>">        
-        <meta charset="UTF-8">
+        <title><?= isset($this->sTitle) ? $this->sTitle : ''; ?></title>
+        <base href="<?= APP_ROOT; ?>">
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta lang="pt-br">
-        <meta name="description" content="">
-        <meta name="keywords" content="">
+        <meta name="description" content="<?= isset($this->sDescription) ? $this->sDescription : ''; ?>">
+        <meta name="keywords" content="<?= isset($this->sKeywords) ? $this->sDescription : ''; ?>">
         <meta name="robots" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="content/site/assets/img/favicon.ico">
-        <link rel='stylesheet' type='text/css' href="http://fonts.googleapis.com/css?family=Abel">
-        <link rel='stylesheet' type='text/css' href="http://fonts.googleapis.com/css?family=Pontano+Sans">
-        <link rel='stylesheet' type='text/css' href="http://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,500,700">
-        <link rel='stylesheet' type='text/css' href="http://fonts.googleapis.com/css?family=Roboto:400,300,500">
-        <link rel='stylesheet' type='text/css' href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300">
-        <link rel='stylesheet' type='text/css' href="http://fonts.googleapis.com/css?family=Dosis:300,400,500,600">        
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/chosen/chosen.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/animate/animate.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/owl-carousel/owl.carousel.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/owl-carousel/owl.theme.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/owl-carousel/owl.transitions.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/font-awesome/css/font-awesome.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/material-kit/css/material-kit.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/css/main.css">        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Jonatan Noronha Reginato">
+        <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/dashboard.css">
     </head>
-    <body>        
-        <?php $this->render(); ?>
-        <script type="text/javascript" src="content/site/assets/ext/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="content/site/assets/ext/bootstrap/js/bootstrap.min.js"></script>    
-        <script type="text/javascript" src="content/site/assets/ext/owl-carousel/owl.carousel.min.js"></script>
-        <script type="text/javascript" src="content/site/assets/ext/isotope/isotope.pkgd.min.js"></script>
-        <script type="text/javascript" src="content/site/assets/ext/wow//wow.min.js"></script>
-
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+                <a class="navbar-brand" href="atendimento/home/index">Sistema de Atendimento Básico</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto"></ul>
+                    <div class="form-inline mt-2 mt-md-0">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span data-feather="mail"></span>
+                                    Chamados
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                    <?php if ($_SESSION['loggedUserType'] === ADMINISTRADOR) : ?>
+                                        <a class="dropdown-item" href="atendimento/chamado/listar/novos">Novos Chamados</a>
+                                    <?php endif; ?>
+                                    <?php if ($_SESSION['loggedUserType'] !== CLIENTE) : ?>
+                                        <a class="dropdown-item" href="atendimento/chamado/listar/atribuidos">Chamados Atribuídos</a>
+                                    <?php endif; ?>
+                                    <?php if ($_SESSION['loggedUserType'] === CLIENTE) : ?>
+                                        <a class="dropdown-item" href="atendimento/chamado/abrir">Abrir Chamado</a>
+                                        <a class="dropdown-item" href="atendimento/chamado/listar/abertos">Chamados em Aberto</a>
+                                    <?php endif; ?>
+                                    <a class="dropdown-item" href="atendimento/chamado/listar/concluidos">Chamados Concluídos</a>
+                                    <a class="dropdown-item" href="atendimento/chamado/listar">Todos os Chamados</a>
+                                </div>
+                            </li>
+                            <?php if ($_SESSION['loggedUserType'] === ADMINISTRADOR) : ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="atendimento/clientes/index">
+                                        <span data-feather="users"></span>
+                                        Clientes
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                            <?php if ($_SESSION['loggedUserType'] !== CLIENTE) : ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="atendimento/relatorio/index">
+                                        <span data-feather="bar-chart-2"></span>
+                                        Relatórios
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="atendimento/configuracao/index">
+                                    <span data-feather="settings"></span>
+                                    Configurações
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="atendimento/ajuda/index">
+                                    <span data-feather="help-circle"></span>
+                                    Ajuda
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="atendimento/home/logout">
+                                    <span data-feather="log-out"></span>
+                                    Sair
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-lg-2 d-none d-lg-block bg-light sidebar">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="atendimento/home/index">
+                                    <span data-feather="home"></span>
+                                    Home <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" id="dropdown02" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                                    <span data-feather="mail"></span>
+                                    Chamados
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown02">
+                                    <?php if ($_SESSION['loggedUserType'] === ADMINISTRADOR) : ?>
+                                        <a class="dropdown-item" href="atendimento/chamado/listar/novos">Novos Chamados</a>
+                                    <?php endif; ?>
+                                    <?php if ($_SESSION['loggedUserType'] !== CLIENTE) : ?>
+                                        <a class="dropdown-item" href="atendimento/chamado/listar/atribuidos">Chamados Atribuídos</a>
+                                    <?php endif; ?>
+                                    <?php if ($_SESSION['loggedUserType'] === CLIENTE) : ?>
+                                        <a class="dropdown-item" href="atendimento/chamado/abrir">Abrir Chamado</a>
+                                        <a class="dropdown-item" href="atendimento/chamado/listar/abertos">Chamados em Aberto</a>
+                                    <?php endif; ?>
+                                    <a class="dropdown-item" href="atendimento/chamado/listar/concluidos">Chamados Concluídos</a>
+                                    <a class="dropdown-item" href="atendimento/chamado/listar">Todos os Chamados</a>
+                                </div>
+                            </li>
+                            <?php if ($_SESSION['loggedUserType'] === ADMINISTRADOR) : ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="atendimento/clientes/index">
+                                        <span data-feather="users"></span>
+                                        Clientes
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                            <?php if ($_SESSION['loggedUserType'] !== CLIENTE) : ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="atendimento/relatorio/index">
+                                    <span data-feather="bar-chart-2"></span>
+                                    Relatórios
+                                </a>
+                            </li>
+                            <?php endif; ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="atendimento/configuracao/index">
+                                    <span data-feather="settings"></span>
+                                    Configurações
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="atendimento/ajuda/index">
+                                    <span data-feather="help-circle"></span>
+                                    Ajuda
+                                </a>
+                            </li>
+                        </ul>
+                        <?php if ($_SESSION['loggedUserType'] !== CLIENTE) : ?>
+                            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                <span>Relatórios salvos</span>
+                                <a class="d-flex align-items-center text-muted" href="atendimento/relatorio/index">
+                                    <span data-feather="plus-circle"></span>
+                                </a>
+                            </h6>
+                            <ul class="nav flex-column mb-2">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="atendimento/relatorio/index">
+                                        <span data-feather="file-text"></span>
+                                        Neste mês
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="atendimento/relatorio/index">
+                                        <span data-feather="file-text"></span>
+                                        Último trimestre
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="atendimento/relatorio/index">
+                                        <span data-feather="file-text"></span>
+                                        Último semestre
+                                    </a>
+                                </li>
+                            </ul>
+                        <?php endif; ?>
+                    </div>
+                </nav>
+                <main role="main" class="col-lg-9 ml-sm-auto col-lg-10 px-4">
+                    <?php $this->render(); ?>
+                </main>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>');</script>
+        <script type="text/javascript" src="js/popper.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/feather.min.js"></script>
         <script>
-            new WOW().init();
+            feather.replace();
         </script>
-
-<script>
-    $(document).ready(function () {
-        $("#starting-slider").owlCarousel({
-            autoPlay: 8000,
-            navigation: false, // Show next and prev buttons
-            slideSpeed: 700,
-            paginationSpeed: 1000,
-            singleItem: true
-        });
-    });
-</script>
-
-<script>
-    $(function() {
-        // init Isotope
-        var $container = $('.isotope').isotope
-        ({
-            itemSelector: '.element-item',
-            layoutMode: 'fitRows'
-        });
-
-
-        // bind filter button click
-        $('#filters').on('click', 'button', function ()
-        {
-            var filterValue = $(this).attr('data-filter');
-            // use filterFn if matches value
-            $container.isotope({filter: filterValue});
-        });
-
-        // change is-checked class on buttons
-        $('.button-group').each(function (i, buttonGroup)
-        {
-            var $buttonGroup = $(buttonGroup);
-            $buttonGroup.on('click', 'button', function ()
+        <script type="text/javascript" src="js/application.js"></script>
+        <script>
+            $(function()
             {
-                $buttonGroup.find('.is-checked').removeClass('is-checked');
-                $(this).addClass('is-checked');
+                onSubmitForm('#novoChamado');
+                onSubmitForm('#atribuirChamado', true);
+                onSubmitForm('#enviaMensagemChamado', true);
             });
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        $(".tipo-pesquisa").click(function() {
-            id = $(this).attr("id");
-            $("ul.search-opcao li a").removeClass("active");
-            $("ul.search-opcao li a#" + id).addClass("active");
-
-            $(".service-type").addClass("hidden");
-            $(".service-type").prop("disabled", true);
-
-            $("#option_" + id).removeClass("hidden");
-            $("#option_" + id).prop("disabled", false);
-
-            $("#selected-type").val(id);
-        });
-    });
-</script>
-
-<script>
-    <?php if (!isset($view_user_type) || $view_user_type == '') { ?>
-        $(document).ready(
-            function() {
-                setTimeout(function(){$('#modal-select-user').modal({backdrop: 'static', keyboard: false});}, 1000);
-            }
-        );
-    <?php } ?>
-</script>
-        
-        
-        
+        </script>
     </body>
 </html>

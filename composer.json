@@ -1,22 +1,42 @@
 {
-    "name": "j84reginato/composer-php",
-    "description": "Composer PHP",
+    "name": "Sistema de Atendimento Básico",
+    "description": "Protótipo de um sistema de atendimento básico desenvolvido para uma etapa do Processo Seletivo Analista Desenvolvimento FullStack PHP da empresa Madeira Madeira.",
+    "type": "project",
     "authors": [
         {
             "name": "Jonatan Noronha Reginato",
             "email": "noronha_reginato@hotmail.com"
         }
     ],
+    "license": "N/A",
+    "keywords": [
+        "atendimento",
+        "MVC+S",
+        "Factory",
+        "Dependency Injection",
+        "Madeira Madeira"
+    ],
+    "homepage": "http://jonatan.reginato.sistemaatendimentobasico/",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
+        "php": "^5.6 || ^7.0",
+        "gregwar/captcha": "1.*"
     },
     "require-dev": {
     },
     "autoload": {
         "psr-4": {
-            "core\\": "core/",
-            "database\\": "database/",
-            "controllers\\": "mvc/controllers/",
-            "models\\": "mvc/models/"
+            "Myframework\\": "system/Myframework/",
+            "Site\\": "application/Site/src/",
+            "Atendimento\\": "application/Atendimento/src/"
         }
+    },
+    "autoload-dev": {
+    },
+    "extra": [],
+    "scripts": {
+        "serve": "php -S 0.0.0.0:8080 -t G:/atendimento/public",
+        "test": "phpunit"
     }
 }

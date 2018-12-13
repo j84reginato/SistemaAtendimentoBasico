@@ -1,0 +1,486 @@
+* {outline: none !important;}
+
+@font-face {
+    font-family: bariol_regularregular;
+    src: url(../fonts/bariol_regular-webfont.eot)
+}
+
+@font-face {
+    font-family: bariol_regularregular;
+    src: url(../fonts/bariol_regular-webfont.ttf) format('truetype'), url(../fonts/bariol_regular-webfont.svg#bariol_regularregular) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: bariol_boldbold;
+    src: url(../fonts/bariol_bold-webfont.eot)
+}
+
+@font-face {
+    font-family: bariol_boldbold;
+    src: url(../fonts/bariol_bold-webfont.ttf) format('truetype'), url(../fonts/bariol_bold-webfont.svg#bariol_boldbold) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+/* GLOBAL
+---------------------------------------------------------------------------- */
+
+body {
+  padding-top: 3rem;
+  color: #5a5a5a;
+}
+
+p {
+    font-family: 'Dosis', sans-serif;
+    word-spacing: 3px;
+    font-size: 17px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: bariol_boldbold;
+    font-weight: 300;
+}
+
+ul li {
+    list-style: none;
+    display: inline-block;
+}
+
+li a {
+    text-decoration: none;
+}
+
+/* CUSTOMIZACAO DO CAROUSEL
+---------------------------------------------------------------------------- */
+
+.carousel {
+  margin-bottom: 4rem;
+}
+
+.slider-inner {
+    background-color: rgba(51, 71, 90, 0.32);
+    width: 100%;
+    color: white;
+    height: 700px;
+}
+
+.slider-inner h1 {
+    margin-bottom: 35px;
+    font-size: 70px;
+}
+
+.slider-inner-text {
+    margin: 262px 0px;
+    width: 50%
+}
+
+.slider-inner-text p {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.slider-1 {
+    background: url(../img/slider1.jpg);
+    width: 100%;
+    background-size: cover;
+    vertical-align: middle;
+    background-position-x: 75%;
+    background-position-y: 5%;
+}
+
+.slider-2 {
+    background: url(../img/slider2.jpg);
+    width: 100%;
+    background-size: cover;
+    background-position-x: 65%;
+    background-position-y: 5%;
+}
+
+.slider-3 {
+    background: url(../img/slider3.jpg);
+    width: 100%;
+    background-size: cover;
+    background-position-x: 75%;
+    background-position-y: 5%;
+}
+
+.owl-pagination {
+    display: none;
+}
+
+/* FORMULARIO AUTENTICACAO USUARIO
+---------------------------------------------------------------------------- */
+
+.auth-panel {
+    position: absolute;
+    top: 100px;
+    min-width: 100%;
+}
+
+.auth-container {
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.8rem;
+    background-color: rgba(255, 255, 255, .8);
+    margin-top: 50px;
+    padding: 20px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.auth-container h2 {
+    font-size: 30px;
+    margin: 20px 15px;
+}
+
+.auth-container h3 {
+    font-size: 30px;
+    margin: 30px 15px 10px 15px;
+}
+
+.auth-container p {
+    margin: 10px 15px;
+}
+
+.auth-container a {
+    color: darkcyan;
+}
+
+.auth-container .input-group .input-group-addon {
+    border: 1px solid #ccc;
+    background-color: #eee;
+    padding: 6px 12px;
+    width: 38px;
+}
+
+.auth-container .form-control {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 6px 12px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-image: none;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.auth-container .btn {
+    width: 40%;
+    font-size: 12px;
+    background: #46a1b4;
+    box-shadow: none;
+    font-family: 'Raleway', sans-serif;
+}
+
+.auth-container .pull-right {
+    float: right;
+}
+
+.auth-container .or {
+    background: #46a1b4 none repeat scroll 0% 0%;
+    border-radius: 40px;
+    color: #FFF;
+    font-family: "Roboto",sans-serif;
+    font-size: 30px;
+    height: 60px;
+    line-height: 60px;
+    margin-top: 90px;
+    text-align: center;
+    width: 60px;
+}
+
+/* FORMULARIO CADASTRO DE USUARIO
+---------------------------------------------------------------------------- */
+
+.register-panel {
+    padding-top: 30px;
+    padding-bottom: 100px;
+    margin-bottom: 60px;
+    min-width: 100%;
+    background: url(../img/body.jpg) center top repeat-x #C3C3C3;
+}
+
+.register-container {
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.8rem;
+    background-color: rgba(255, 255, 255, .8);
+    margin-top: 50px;
+    padding: 20px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.register-container h4 {
+    font-size: 1.2rem;
+}
+
+.register-container hr {
+    margin: 0 -20px 20px -20px;
+}
+
+/* CONTEUDO DE MARKETING (SESSAO COMO FUNCIONA)
+---------------------------------------------------------------------------- */
+
+.marketing {
+  text-align: center;
+}
+
+.marketing .col-lg-12 h2 {
+    font-size: 50px;
+    text-shadow: 1px 1px 2px #083944;
+}
+
+.marketing .col-lg-12 p {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    line-height: 35px;
+    padding: 20px 0;
+    letter-spacing: 1px;
+}
+
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+}
+
+.marketing .col-lg-4 h2 {
+  font-weight: 400;
+}
+
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+.steps {
+    font-size: 80px;
+}
+
+/* SESSAO DEPOIMENTOS
+---------------------------------------------------------------------------- */
+
+.testimonial {
+    background: url(../img/background1.jpg);
+    width: 100%;
+    background-size: cover;
+    margin-top: 20px;
+    color: rgba(134, 132, 132, 1);
+}
+
+.testimonial-wrapper {
+    background-color: rgba(0, 0, 0, 0.87);
+    padding: 40px 0px;
+}
+
+.headline h1 {
+    font-size: 51px;
+}
+
+.sub-headline {
+    padding: 15px 0px 40px 0px;
+    font-size: 24px;
+}
+
+.sub-headline p {
+    font-size: 23px;
+}
+
+.client-comment {
+    font-size: 18px;
+    padding: 30px 0px;
+    line-height: 30px;
+}
+
+.client-image {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border: 10px solid rgb(131, 129, 137);
+}
+
+.client-name {
+    font-size: 17px;
+}
+
+/* SESSAO FALE CONOSCO
+---------------------------------------------------------------------------- */
+
+.appointment {
+    background-color: #e6e6e6;
+}
+
+.appointment .header {
+    background-color: #46a1b4;
+    min-height: 99px;
+    height: auto !important;
+    padding: 10px 23px 0px;
+    margin: 0px 0px 30px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.2)), to(rgba(0,0,0,0)));
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255,.2), rgba(0,0,0,0));
+    background-image: -moz-linear-gradient(top, rgba(255,255,255,.2), rgba(0,0,0,0));
+    background-image: -ms-linear-gradient(top, rgba(255,255,255,.2), rgba(0,0,0,0));
+    background-image: -o-linear-gradient(top, rgba(255,255,255,.2), rgba(0,0,0,0));
+    background-image: linear-gradient(top, rgba(255,255,255,.2), rgba(0,0,0,0));
+}
+
+.appointment .header h2,
+.appointment .header .number {
+    text-shadow: 1px 1px 0px #20606D;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 40px;
+    font-weight: normal;
+}
+
+.appointment .header a i {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    border: 2px solid #fff;
+    background: #6DBEC2;
+    color: white;
+    padding-top: 3px;
+    padding-left: 6px;
+}
+
+.appointment .header .or {
+    display: block;
+    width: 100%;
+    height: 35px;
+    background: url(../img/or-bg.png) center center no-repeat;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    position: relative;
+    top: 17px;
+}
+
+.captcha-img {
+    display: block;
+    width: 100%;
+    /*height: calc(2.25rem + 2px);*/
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+/* RODAPE
+---------------------------------------------------------------------------- */
+
+#footer {
+    background-color: #085A6C;
+    background: -webkit-linear-gradient(left top, #085A6C , #3E8B90);
+    background: -o-linear-gradient(bottom right, #085A6C , #3E8B90);
+    background: -moz-linear-gradient(bottom right, #085A6C , #3E8B90);
+    background: linear-gradient(to bottom right, #085A6C , #3E8B90);
+    padding: 25px 0px;
+}
+
+.copy-right-text {
+    color: #fff;
+    font-size: 13px;
+    padding-top: 25px;
+}
+
+.copy-right-text a {
+    color: #afeeee;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.copy-right-text a:hover {
+    color: #064b6d;
+}
+
+/* SOCIAL MEDIA
+---------------------------------------------------------------------------- */
+
+.contact {
+    padding-top: 10px;
+    padding-left: 0px;
+}
+
+li.socials-icons {
+    padding-left: 20px;
+}
+
+.socials-icons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    /* background: #6DBEC2; */
+    background-color: #49c1dc;
+    float: left;
+    color: white;
+    padding-top: 3px;
+    font-size: 20px;
+}
+
+.facebook:hover {
+    background-color: #46629e;
+    box-shadow: 0 0 0 2px #46629e;
+    color: white;
+}
+
+.twitter:hover {
+    background-color: #0eaace;
+    box-shadow: 0 0 0 2px #0eaace;
+    color: white;
+}
+
+.google-plus:hover {
+    background-color: #af0000;
+    box-shadow: 0 0 0 2px #af0000;
+    color: white;
+
+}
+.instagram:hover {
+    background-color: #3f729b;
+    box-shadow: 0 0 0 2px #3f729b;
+    color: white;
+}
+
+.pinterest:hover {
+    background-color: #cb2027;
+    box-shadow: 0 0 0 2px #cb2027;
+    color: white;
+}
+
+.skype:hover {
+    background-color: #01aef2;
+    box-shadow: 0 0 0 2px #01aef2;
+    color: white;
+}
+
+
+/* RESPONSIVE CSS
+---------------------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+    .slider-inner-text {
+        margin: 162px 0px;
+    }
+}
+
+@media (max-width: 767px) {
+    .slider-inner-text {
+        margin: 162px 58px;
+        width: 62%;
+    }
+}
+
+@media (max-width: 505px) {
+    .slider-inner h1{
+        font-size: 50px;
+    }
+    .slider-inner-text {
+        margin: 162px 13px;
+    }
+    .slider-inner-text p {
+        font-size: 19px;
+    }
+}

@@ -1,136 +1,263 @@
 <?php
 
-namespace core;
+/**
+ * @package MyFramework
+ * @subpackage MVC
+ * @category Controller
+ * @version 1.0.0
+ * @author Jonatan Noronha Reginato <noronha_reginato@hotmail.com>
+ */
+namespace Myframework\Mvc\Controller;
 
-class System extends Router
+use Myframework\Application\Application;
+use Myframework\Mvc\Module\Module;
+use const APP_PATH;
+
+/**
+ * Classe responsável por tratar a requisição url do usuário e enviar a chamada
+ * para a execução do "Module/Controller/action" correspondente.
+ */
+class Controller extends Module
 {
-    private $url;
-    private $url_array;
+    /**
+     * Representa o "Controller" contido na url requisitada.
+     *
+     * @var string
+     */
+    protected $sController;
 
-    protected $enviroment;
-    protected $controller;
-    protected $method;
+    /**
+     * Representa a "action" contida na url requisitada.
+     *
+     * @var string
+     */
+    protected $sAction;
 
-    private $params;
-    private $obj_controller;
+    /**
+     * Representa os parâmetros contidos na url requisitada.
+     *
+     * @var string | array
+     */
+    protected $aParams;
 
-    public function __construct()
+    /**
+     * Representa uma única instancia desta clase (Singleton instance).
+     *
+     * @var self
+     */
+    private static $oInstance;
+
+    /**
+     * Este construtor usa o Design Pattern Singleton.
+     * Sua declaração como privada previne que uma instância desta classe seja
+     * criada externamente à classe através do operador "new".
+     */
+    private function __construct()
     {
-        $this->setUrl();
+        $this->setup();
+        $this->validator();
+    }
+
+    /**
+     * Método clone do tipo privado previne a clonagem da instância da classe.
+     */
+    private function __clone()
+    {
+    }
+
+    /**
+     * Método unserialize do tipo privado para prevenir a desserialização da
+     * instância dessa classe.
+     */
+    private function __wakeup()
+    {
+    }
+
+    /**
+     * Retorna uma instância única desta classe (Singleton instance).
+     *
+     * @return self
+     */
+    public static function getInstance()
+    {
+        if (empty(self::$oInstance)) {
+            self::$oInstance = new self;
+        }
+        return self::$oInstance;
+    }
+
+    /**
+     * Método responsável por realizar a configuração da camada Controller.
+     */
+    private function setup()
+    {
         $this->setUrlArray();
-        $this->setEnviroment();
+        $this->setModule();
         $this->setController();
-        $this->setMethod();
-        $this->setParrams();
+        $this->setAction();
+        $this->setParams();
     }
 
-    private function setUrl()
+    /**
+     * Método responsável por realizar a validação do controller e da action.
+     */
+    private function validator()
     {
-        $input_url = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_STRING);
-        $this->url = isset($input_url) ? $input_url : 'home/index';
+        // Configura o namespace do controller requisitado
+        $sClassNameSpace = ucfirst($this->sModule)
+                         . '\\Controller\\'
+                         . ucfirst($this->sController) . 'Controller';
+
+        // Configura o nome completo da action requisitada
+        $sActionName = $this->sAction . 'Action';
+
+        // Realiza a validação do Controller e da Action
+        $this->controllerValidation($sClassNameSpace);
+        $this->actionValidation($sClassNameSpace, $sActionName);
     }
 
-    private function setUrlArray()
+    /**
+     * Método responsável por rodar a aplicação:
+     * Instancia o Controller e executa a action requisitada.
+     */
+    public function run(Application $oApp)
     {
-        $this->url_array = explode('/', $this->url);
+        $sClassFactory = ucfirst($this->sModule)
+                       . '\\Controller\\Factory\\'
+                       . ucfirst($this->sController) . 'ControllerFactory';
+
+        $sActionName = $this->sAction . 'Action';
+
+        $oController = $sClassFactory::create($oApp);
+        $oController->$sActionName();
     }
 
-    private function setEnviroment()
-    {
-        foreach ($this->routers as $key => $value) {
-            if ($this->on_default_router && $this->url_array[0] == $key) {
-                $this->enviroment = $value;
-                $this->on_default_router = false;
-            }
-        }
-        $this->enviroment = empty($this->enviroment) ? $this->default_router : $this->enviroment;
-        if (!defined('APP_ENVIROMENT')) {
-            define('APP_ENVIROMENT', $this->enviroment);
-        }
-    }
-
-    public function getEnviroment()
-    {
-        return $this->enviroment;
-    }
-
+    /**
+     * Configura o valor do atributo.
+     */
     private function setController()
     {
-        $this->controller = $this->on_default_router
-            ? $this->url_array[0]
-            : (!isset($this->url_array[1]) || is_null($this->url_array[1]) || empty($this->url_array[1]) ? 'home' : $this->url_array[1]);
+        $this->sController = $this->bOnDefaultModule
+            ? $this->aUrl[0]
+            : ! isset($this->aUrl[1]) || is_null($this->aUrl[1]) || empty($this->aUrl[1])
+                ? 'home'
+                : $this->aUrl[1];
+
+        if (! defined('APP_CONTROLLER')) {
+            define('APP_CONTROLLER', $this->sController);
+        }
     }
 
+    /**
+     * Recupera o valor do atributo.
+     *
+     * @return string
+     */
     public function getController()
     {
-        return $this->controller;
+        return $this->sController;
     }
 
-    private function setMethod()
+    /**
+     * Configura o valor do atributo.
+     */
+    private function setAction()
     {
-        $this->method = $this->on_default_router
-            ? (!isset($this->url_array[1]) || is_null($this->url_array[1]) || empty($this->url_array[1]) ? 'index' : $this->url_array[1])
-            : (!isset($this->url_array[2]) || is_null($this->url_array[2]) || empty($this->url_array[2]) ? 'index' : $this->url_array[2]);
-    }
+        $this->sAction = $this->bOnDefaultModule
+            ? ! isset($this->aUrl[1]) || is_null($this->aUrl[1]) || empty($this->aUrl[1])
+                ? 'index'
+                : $this->aUrl[1]
+            : ! isset($this->aUrl[2]) || is_null($this->aUrl[2]) || empty($this->aUrl[2])
+                ? 'index'
+                : $this->aUrl[2];
 
-    public function getMethod()
-    {
-        return $this->method;
-    }
-
-    private function setParrams()
-    {
-        if ($this->on_default_router) {
-            unset($this->url_array[0], $this->url_array[1]);
-        } else {
-            unset($this->url_array[0], $this->url_array[1], $this->url_array[2]);
+        if (! defined('APP_ACTION')) {
+            define('APP_ACTION', $this->sAction);
         }
-        if (end($this->url_array) == null) {
-            array_pop($this->url_array);
-        }
-        if (empty($this->url_array)) {
-            $this->params = array();
+    }
+
+    /**
+     * Recupera o valor do atributo.
+     *
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->sAction;
+    }
+
+    /**
+     * Configura o valor do atributo.
+     */
+    private function setParams()
+    {
+        if ($this->bOnDefaultModule) {
+            unset($this->aUrl[0], $this->aUrl[1]);
         } else {
-            foreach ($this->url_array as $value) {
-                $params[] = $value;
+            unset($this->aUrl[0], $this->aUrl[1], $this->aUrl[2]);
+        }
+        if (end($this->aUrl) == null) {
+            array_pop($this->aUrl);
+        }
+        if (empty($this->aUrl)) {
+            $this->aParams = [];
+        } else {
+            foreach ($this->aUrl as $mValue) {
+                $aParams[] = $mValue;
             }
-            $this->params = $params;
+            $this->aParams = $aParams;
         }
     }
 
-    public function getParams($index)
+    /**
+     * Recupera o valor do atributo.
+     *
+     * @param integer $iIndex
+     * @return string
+     */
+    public function getParams($iIndex = null)
     {
-        return isset($this->params[$index]) ? $this->params[$index] : 'NULL';
+        if (isset($iIndex)) {
+            return isset($this->aParams[$iIndex]) ? $this->aParams[$iIndex] : 'null';
+        }
+        return $this->aParams;
     }
 
-    public function run()
+    /**
+     * Realiza a validação do "controller" requisistado.
+     *
+     * @param string $sClass
+     */
+    private function controllerValidation($sClass)
     {
-        $controller = '\\controllers\\' . $this->enviroment . '\\' . ucfirst($this->controller) . 'Controller';
-        $method = $this->method;
-
-        $this->controllerValidation($controller);
-        $this->obj_controller = new $controller();
-        $this->methodValidation();
-        $this->obj_controller->$method();
-    }
-
-    private function controllerValidation($controller)
-    {
-        if (!class_exists($controller)) {
+        if (! class_exists($sClass)) {
             header('HTTP/1.0 404 Not Found');
-            define('ERROR', 'O controller ' . ucfirst($this->controller) . 'Controller não existe');
-            include "views/{$this->enviroment}/shared/404_error.php";
+            define(
+                'ERROR',
+                'O controller ' . ucfirst($this->sController) . 'Controller ' . 'não existe!'
+            );
+            include APP_PATH . "/{$this->sModule}/view/_error/404_error.phtml";
             exit();
         }
     }
 
-    private function methodValidation()
+    /**
+     * Realiza a validação da "action" requisistada.
+     *
+     * @param string $sClass
+     * @param string $sMethod
+     */
+    private function actionValidation($sClass, $sMethod)
     {
-        if (!method_exists($this->obj_controller, $this->method)) {
+        if (! method_exists($sClass, $sMethod)) {
             header('HTTP/1.0 404 Not Found');
-            define('ERROR', 'O método ' . ucfirst($this->controller) . 'Controller/' .$this->method . ' não existe');
-            include "views/{$this->enviroment}/shared/404_error.php";
+            define(
+                'ERROR',
+                'O método ' . ucfirst($this->sController) . 'Controller/' . $this->sAction . ' não existe!'
+            );
+            include APP_PATH . "/{$this->sModule}/view/_error/404_error.phtml";
             exit();
         }
     }
+
 }

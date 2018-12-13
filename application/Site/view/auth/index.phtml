@@ -1,0 +1,94 @@
+<!-- Banners do tipo slider -->
+<div id="myCarousel" class="carousel slide heading-slider" data-ride="carousel">
+    <div id="starting-slider" class="owl-carousel owl-theme">
+        <div class="item">
+            <div class="slider-1">
+                <div class="slider-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="slider-inner-text">
+                                <!--<h1></h1>-->
+                                <!--<p></p>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="slider-2">
+                <div class="slider-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="slider-inner-text">
+                                <!--<h1></h1>-->
+                                <!--<p></p>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="slider-3">
+                <div class="slider-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="slider-inner-text">
+                                <!--<h1></h1>-->
+                                <!--<p></p>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Painel formulário -->
+<div class="auth-panel">
+    <div class="container auth-container">
+        <div class="row">
+            <div class="col-12 col-lg-5">
+                <h2>Digite seus dados de acesso</h2>
+                <form id="formLogin" action="site/auth/index" method="post">
+                    <div class="form-group col-12">
+                        <div class="toast-message" role="alert"></div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-user" aria-hidden="true"></span></span>
+                            <input type="text" class="form-control" name="usuario" placeholder="Insira seu nome de usuário ou email" autofocus required>
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-lock" aria-hidden="true"></span></span>
+                            <input type="password" class="form-control" name="senha" placeholder="Insira sua senha" required>
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <button type="submit" class="btn btn-info">Login</button>
+                        <div class="pull-right">
+                            <input type="checkbox" name="rememberMe" value="1"> Lembre-me
+                        </div>
+                    </div>
+                </form>
+                <div class="col-12">
+                    <a href="#">Esqueceu sua senha?</a>
+                </div>
+                <div class="col-12 d-block d-lg-none">
+                    <a href="site/usuario/index">Não possui cadastro?</a>
+                </div>
+            </div>
+            <div class="col-lg-2 d-none d-lg-block">
+                <h2 class="or mx-auto"><span class="fa fa-arrows-h" aria-hidden="true"></span></h2>
+            </div>
+            <div class="col-lg-5 d-none d-lg-block">
+                <h2>Não possui cadastro?</h2>
+                <h3><a href="site/usuario/index">Registre-se agora</a></h3>
+                <p><i>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</i></p>
+                <p>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</p>
+            </div>
+        </div>
+    </div>
+</div>

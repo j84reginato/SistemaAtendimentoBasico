@@ -1,0 +1,120 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Detalhes do Chamado</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <?php if ($_SESSION['loggedUserType'] === ADMINISTRADOR && $this->oChamadoData->status === 'Novo') : ?>
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#modalExemplo">
+                <span data-feather="link"></span>
+                Atribuir a um atendente
+            </button>
+        <?php elseif ($_SESSION['loggedUserType'] !== ADMINISTRADOR) : ?>
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">
+                <span data-feather="edit"></span>
+                Escrever Mensagem
+            </button>
+        <?php endif; ?>
+    </div>
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <?php if ($this->oChamadoData) : ?>
+                    <p><b>Data da Abertura: </b><?= date_format(date_create($this->oChamadoData->dataHoraAbertura), "d/m/Y H:i"); ?></p>
+                    <p><b>Data do Fechamento: </b><?= ! empty($this->oChamadoData->dataHoraFechamento) ? date_format(date_create($this->oChamadoData->dataHoraFechamento), "d/m/Y H:i:s") : '-'; ?></p>
+                    <p><b>Cliente: </b><?= $this->oChamadoData->cliente; ?></p>
+                    <p><b>Atendente: </b><?= $this->oChamadoData->atendente; ?></p>
+                    <p><b>Motivo: </b><?= $this->oChamadoData->motivo; ?></p>
+                    <p><b>Tipo: </b><?= $this->oChamadoData->tipo; ?></p>
+                    <p><b>Status: </b><?= $_SESSION['loggedUserType'] === CLIENTE && ($this->oChamadoData->status == 'Novo' || $this->oChamadoData->status == 'Atribuído') ? 'Em Aberto' : $this->oChamadoData->status; ?></p>
+                    <p><b>Mensagem: </b><?= $this->oChamadoData->mensagem; ?></p>
+                    <hr>
+                    <div class="jumbotron-fluid">
+                        <?php if (count($this->oChamadoData->mensagens)) : ?>
+                            <h5>Histórico de Mensagens:</h5>
+                            <hr>
+                            <?php foreach ($this->oChamadoData->mensagens as $oMensagem) : ?>
+                                <p><b>Data: </b><?= date_format(date_create($oMensagem->dataHora), "d/m/Y H:i"); ?></p>
+                                <p><b>Usuario: </b><?= $oMensagem->usuario; ?></p>
+                                <p><b>Mensagem: </b><?= $oMensagem->mensagem; ?></p>
+                                <hr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+                <?php if ($_SESSION['loggedUserType'] === ADMINISTRADOR && $this->oChamadoData->status === 'Novo') : ?>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#modalExemplo">
+                        <span data-feather="link"></span>
+                        Atribuir a um atendente
+                    </button>
+                <?php elseif ($_SESSION['loggedUserType'] !== ADMINISTRADOR) : ?>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">
+                        <span data-feather="edit"></span>
+                        Escrever Mensagem
+                    </button>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Atribuir Chamado</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="atribuirChamado" action="atendimento/chamado/atribuir" method="post">
+                <div class="modal-body">
+                    <div class="toast-message" role="alert"></div>
+                    <input type="hidden" name="csrfToken" value="<?= $_SESSION['csrfToken']; ?>">
+                    <input type="hidden" name="pkChamado" value="<?= $this->oChamadoData->pkChamado; ?>">
+                    <div class="form-group">
+                        <label for="atribuir" class="col-form-label">Mensagem:</label>
+                        <select class="form-control" id="atribuir" name="fkAtendente" required>
+                            <option value="">Selecione...</option>
+                            <?php foreach ($this->aAtendentes as $aAtendente) : ?>
+                                <option value="<?= $aAtendente->pkUsuario; ?>"><?= $aAtendente->nome; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="enviaMensagemChamado" action="atendimento/mensagem/envia" method="post">
+                <div class="modal-body">
+                    <div class="toast-message" role="alert"></div>
+                    <input type="hidden" name="csrfToken" value="<?= $_SESSION['csrfToken']; ?>">
+                    <input type="hidden" name="fkChamado" value="<?= $this->oChamadoData->pkChamado; ?>">
+                    <input type="hidden" name="fkUsuario" value="<?= $_SESSION['loggedUserId']; ?>">
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Mensagem:</label>
+                        <textarea class="form-control" id="message-text" name="mensagem" rows="6"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

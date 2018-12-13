@@ -1,116 +1,304 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
-        <title><?php echo $this->title; ?></title>        
-        <base href="<?php echo APP_ROOT; ?>">        
-        <meta charset="UTF-8">
+        <title><?= isset($this->sTitle) ? $this->sTitle : ''; ?></title>
+        <base href="<?= APP_ROOT; ?>">
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta lang="pt-br">
-        <meta name="description" content="">
-        <meta name="keywords" content="">
+        <meta name="description" content="<?= isset($this->sDescription) ? $this->sDescription : ''; ?>">
+        <meta name="keywords" content="<?= isset($this->sKeywords) ? $this->sDescription : ''; ?>">
         <meta name="robots" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="content/site/assets/img/favicon.ico">
-        <link rel='stylesheet' type='text/css' href="http://fonts.googleapis.com/css?family=Abel">
-        <link rel='stylesheet' type='text/css' href="http://fonts.googleapis.com/css?family=Pontano+Sans">
-        <link rel='stylesheet' type='text/css' href="http://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,500,700">
-        <link rel='stylesheet' type='text/css' href="http://fonts.googleapis.com/css?family=Roboto:400,300,500">
-        <link rel='stylesheet' type='text/css' href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300">
-        <link rel='stylesheet' type='text/css' href="http://fonts.googleapis.com/css?family=Dosis:300,400,500,600">        
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/chosen/chosen.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/animate/animate.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/owl-carousel/owl.carousel.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/owl-carousel/owl.theme.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/owl-carousel/owl.transitions.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/font-awesome/css/font-awesome.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/ext/material-kit/css/material-kit.css">
-        <link rel="stylesheet" type="text/css" href="content/site/assets/css/main.css">        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Jonatan Noronha Reginato">
+        <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+        <link rel="stylesheet" type="text/css" href="css/owl.theme.css">
+        <link rel="stylesheet" type="text/css" href="css/owl.transitions.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
-    <body>        
-        <?php $this->render(); ?>
-        <script type="text/javascript" src="content/site/assets/ext/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="content/site/assets/ext/bootstrap/js/bootstrap.min.js"></script>    
-        <script type="text/javascript" src="content/site/assets/ext/owl-carousel/owl.carousel.min.js"></script>
-        <script type="text/javascript" src="content/site/assets/ext/isotope/isotope.pkgd.min.js"></script>
-        <script type="text/javascript" src="content/site/assets/ext/wow//wow.min.js"></script>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a class="navbar-brand" href="site/home/index">Sistema de Atendimento Básico</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto"></ul>
+                    <div class="form-inline mt-2 mt-md-0">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item <?= $this->sController == 'home' ? 'active' : ''; ?>">
+                                <a class="nav-link" href="site/home/index">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item  <?= $this->sController != 'home' ? 'active' : ''; ?>">
+                                <a class="nav-link" href="site/auth/index">Entrar / Cadastrar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
+        <main role="main">
+
+            <?php $this->render(); ?>
+
+            <!-- Seção 'Como Funciona?' -->
+            <section id="how-it-works" class="container marketing">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Como funciona?</h2>
+                        <p>Basta seguir 3 simples passos:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h1>1</h1>
+                        <i class="fa fa-laptop steps" aria-hidden="true"></i>
+                        <h2>Inscreva-se</h2>
+                        <p>Acesse com seu <a href="site/auth/index" title="Entrar">login</a> ou envie seus dados de cadastro pelo <a href="site/usuario/index" title="Nosso formulário">nosso formulário.</a></p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h1>2</h1>
+                        <i class="fa fa-envelope-o steps" aria-hidden="true"></i>
+                        <h2>Contato</h2>
+                        <p>Escreva a sua solicitação, mensagem, sugestão ou reclamação.</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h1>3</h1>
+                        <i class="fa fa-comment-o steps" aria-hidden="true"></i>
+                        <h2>Aguarde</h2>
+                        <p>Nossa equipe analisará seu pedido e entrará em contato o mais breve possível</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Depoimentos e Fale Conosco -->
+            <section id="testimonial" class="testimonial">
+                <div class="testimonial-wrapper">
+                    <div class="container">
+                        <div class="row text-center">
+                            <!-- Depoimentos -->
+                            <div class="col-lg-8">
+                                <div class="headline">
+                                    <h1>Depoimentos</h1>
+                                </div>
+                                <div class="sub-headline">
+                                    <p>O que os usuário dizem sobre nós</p>
+                                </div>
+                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="carousel-item active">
+                                            <div class="row d-block">
+                                                <div class="col-12">
+                                                    <i class="fa fa-quote-left"></i>
+                                                </div>
+                                                <div class="col-8 col-offset-2 mx-auto">
+                                                    <p class="client-comment">O atendimento foi ótimo, muito prestativo e rápido!</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <i class="fa fa-quote-right"></i>
+                                                </div>
+                                                <div class="col-4 col-offset-4 mx-auto">
+                                                    <img class="client-image rounded-circle img-fluid" src="img/client1.jpg" alt="Imagem cliente">
+                                                </div>
+                                                <div class="col-12">
+                                                    <p class="client-name">Alan José Poe</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="row d-block">
+                                                <div class="col-12">
+                                                    <i class="fa fa-quote-left"></i>
+                                                </div>
+                                                <div class="col-8 col-offset-2 mx-auto">
+                                                    <p class="client-comment">Simplesmente perfeito! Recomendo.</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <i class="fa fa-quote-right"></i>
+                                                </div>
+                                                <div class="col-4 col-offset-4 mx-auto">
+                                                    <img class="client-image rounded-circle img-fluid" src="img/client2.jpg" alt="Imagem cliente">
+                                                </div>
+                                                <div class="col-12">
+                                                    <p class="client-name">Magda Christie</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="row d-block">
+                                                <div class="col-12">
+                                                    <i class="fa fa-quote-left"></i>
+                                                </div>
+                                                <div class="col-8 col-offset-2 mx-auto">
+                                                    <p class="client-comment">Adorei! Bem facil de usar!</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <i class="fa fa-quote-right"></i>
+                                                </div>
+                                                <div class="col-4 col-offset-4 mx-auto">
+                                                    <img class="client-image rounded-circle img-fluid" src="img/client3.jpg" alt="Imagem cliente">
+                                                </div>
+                                                <div class="col-12">
+                                                    <p class="client-name">Jorge Orwell de Oliveira</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="row d-block">
+                                                <div class="col-12">
+                                                    <i class="fa fa-quote-left"></i>
+                                                </div>
+                                                <div class="col-8 col-offset-2 mx-auto">
+                                                    <p class="client-comment">Muito bom.</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <i class="fa fa-quote-right"></i>
+                                                </div>
+                                                <div class="col-4 col-offset-4 mx-auto">
+                                                    <img class="client-image rounded-circle img-fluid" src="img/client4.jpg" alt="Imagem cliente">
+                                                </div>
+                                                <div class="col-12">
+                                                    <p class="client-name">Julia K Rowling</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carousel-example-generic" role="button" data-slide="prev">
+                                        <i class="fa fa-angle-left fa-3x"></i>
+                                        <span class="sr-only">Anterior</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carousel-example-generic" role="button" data-slide="next">
+                                        <i class="fa fa-angle-right fa-3x"></i>
+                                        <span class="sr-only">Próximo</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Fale Conosco -->
+                            <div class="col-lg-4">
+                                <div class="appointment">
+                                    <div class="header">
+                                        <h2>Fale conosco</h2>
+                                        <a href="#" class="number">
+                                            <i class="fa fa-phone fa-fw"></i>
+                                            (41) 99999-9999
+                                        </a>
+                                        <span class="or">OU</span>
+                                    </div>
+                                    <div class="contact-body">
+                                        <form id="formContato" action="site/contato/envia" method="post">
+                                            <div class="col-md-12 mb-2">
+                                                <input class="form-control" type="text" name="nome" placeholder="Nome Completo *" required>
+                                            </div>
+                                            <div class="col-md-12 mb-2">
+                                                <input class="form-control" type="email" name="email" placeholder="Email *" required>
+                                            </div>
+                                            <div class="col-md-12 mb-2">
+                                                <input class="form-control" type="tel" name="telefone" placeholder="Telefone *" required>
+                                            </div>
+                                            <div class="col-md-12 mb-2">
+                                                <input class="form-control" type="text" name="assunto" placeholder="Assunto *" required>
+                                            </div>
+                                            <div class="col-md-12 mb-4">
+                                                <textarea class="form-control" rows="5" name="mensagem" placeholder="Mensagem *" required></textarea>
+                                            </div>
+                                            <hr>
+                                            <div class="col-md-12 mb-2">
+                                                <label>Não sou um rôbo</label>
+                                            </div>
+                                            <div class="col-lg-12 col-6 col-offset-3 mx-auto mb-4">
+                                                <div class="row">
+                                                    <div class="col-lg-6 pb-2">
+                                                        <img class="captcha-img img-fluid rounded" src="<?= $this->captcha->oCaptchaBuilder->inline(); ?>"/>
+                                                    </div>
+                                                    <div class="col-lg-6 pb-2">
+                                                        <input class="form-control text-center" type="text" name="phrase" maxlength="5" placeholder="Código *" title="Por favor, insira os caracteres do código indicado na imagem acima!" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 mb-4">
+                                                <button class="btn btn-primary btn-block" type="submit">Enviar</button>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="toast-message"></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rodapé -->
+            <section id="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="text-center contact">
+                                <li class="socials-icons">
+                                    <a href="#" data-toggle="tooltip" title="Share in Facebook" class="facebook"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li class="socials-icons">
+                                    <a href="#" data-toggle="tooltip" title="Share in Twitter" class="twitter"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li class="socials-icons">
+                                    <a href="#" data-toggle="tooltip" title="Share in Google +" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                                </li>
+                                <li class="socials-icons">
+                                    <a href="#" data-toggle="tooltip" title="Share in Instagram" class="instagram"><i class="fa fa-instagram"></i></a>
+                                </li>
+                                <li class="socials-icons">
+                                    <a href="#" data-toggle="tooltip" title="Share in Pinterest" class="pinterest"><i class="fa fa-pinterest"></i></a>
+                                </li>
+                                <li class="socials-icons">
+                                    <a href="#" data-toggle="tooltip" title="Connect with Skype" class="skype"><i class="fa fa-skype"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="copy-right-text text-center">
+                                &copy; Copyright 2018, Jonatan Noronha Reginato.<br>
+                                Powered by <a href="https://github.com/j84reginato/" target="_blank">j84reginato</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>');</script>
+        <script type="text/javascript" src="js/popper.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/application.js"></script>
+        <script type="text/javascript" src="js/owl.carousel.min.js"></script>
         <script>
-            new WOW().init();
-        </script>
-
-<script>
-    $(document).ready(function () {
-        $("#starting-slider").owlCarousel({
-            autoPlay: 8000,
-            navigation: false, // Show next and prev buttons
-            slideSpeed: 700,
-            paginationSpeed: 1000,
-            singleItem: true
-        });
-    });
-</script>
-
-<script>
-    $(function() {
-        // init Isotope
-        var $container = $('.isotope').isotope
-        ({
-            itemSelector: '.element-item',
-            layoutMode: 'fitRows'
-        });
-
-
-        // bind filter button click
-        $('#filters').on('click', 'button', function ()
-        {
-            var filterValue = $(this).attr('data-filter');
-            // use filterFn if matches value
-            $container.isotope({filter: filterValue});
-        });
-
-        // change is-checked class on buttons
-        $('.button-group').each(function (i, buttonGroup)
-        {
-            var $buttonGroup = $(buttonGroup);
-            $buttonGroup.on('click', 'button', function ()
+            $(document).ready(function()
             {
-                $buttonGroup.find('.is-checked').removeClass('is-checked');
-                $(this).addClass('is-checked');
+                $("#starting-slider").owlCarousel({
+                    autoPlay: 8000,
+                    navigation: false,
+                    slideSpeed: 700,
+                    paginationSpeed: 1000,
+                    singleItem: true
+                });
             });
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        $(".tipo-pesquisa").click(function() {
-            id = $(this).attr("id");
-            $("ul.search-opcao li a").removeClass("active");
-            $("ul.search-opcao li a#" + id).addClass("active");
-
-            $(".service-type").addClass("hidden");
-            $(".service-type").prop("disabled", true);
-
-            $("#option_" + id).removeClass("hidden");
-            $("#option_" + id).prop("disabled", false);
-
-            $("#selected-type").val(id);
-        });
-    });
-</script>
-
-<script>
-    <?php if (!isset($view_user_type) || $view_user_type == '') { ?>
-        $(document).ready(
-            function() {
-                setTimeout(function(){$('#modal-select-user').modal({backdrop: 'static', keyboard: false});}, 1000);
-            }
-        );
-    <?php } ?>
-</script>
-        
-        
-        
+            $(function()
+            {
+                onSubmitForm('#formContato');
+                onSubmitForm('#formUsuario');
+                onSubmitForm('#formLogin', true);
+            });
+        </script>
     </body>
 </html>

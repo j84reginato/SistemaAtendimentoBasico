@@ -1,0 +1,4 @@
+.vagrant/
+/nbproject/private/
+/data/cache/*
+/vendor/

@@ -1,7 +1,10 @@
 <?php
 
-require_once __DIR__ . '/config.php';
-require_once __DIR__ . '/vendor/autoload.php';
+use Myframework\Application\Application;
 
-$system = new core\System();
+require_once __DIR__ . '/../config/application.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$system = Application::getInstance();
+$system->setup();
 $system->run();

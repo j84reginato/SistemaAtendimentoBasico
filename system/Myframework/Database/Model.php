@@ -1,9 +1,16 @@
 <?php
 
-namespace models;
+/**
+ * @package MyFramework
+ * @subpackage Database
+ * @version 1.0.0
+ * @author Jonatan Noronha Reginato <noronha_reginato@hotmail.com>
+ */
+namespace Myframework\Database;
 
-use models\Gateway;
-
+/**
+ * Classe responsável pela configuração da camada Model.
+ */
 class Model extends Gateway
 {
     protected function select($sql, $params = null, $direct = false)
@@ -12,6 +19,22 @@ class Model extends Gateway
             $this->directQuery($sql);
         } else {
             $this->query($sql, $params);
+        }
+        $result = array();
+        while ($row = $this->fetchObject()) {
+            $result[] = $row;
+        }
+        return $result;
+    }
+
+    protected function select1($sql)
+    {
+        try {
+            $conn = Transaction::get();
+            $state = $conn->prepare($sql);
+            $state->execute();
+        } catch (\PDOException $ex) {
+            die($ex->getMessage() . ' ' . $sql);
         }
         $result = array();
         while ($row = $this->fetchObject()) {
