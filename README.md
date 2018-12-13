@@ -201,8 +201,8 @@ Para as versões disponíveis, veja as [tags neste repositório](https://github.
 Consulte o arquivo [LICENSE.md](LICENSE.md) para obter detalhes.
 
 
-> .
-> .
-> .
-> .
+> #.
+> #.
+> #.
+> #.
 > **"O homem que trabalha somente pelo que recebe, não merece ser pago pelo que faz"** - *Abraham Lincoln*
