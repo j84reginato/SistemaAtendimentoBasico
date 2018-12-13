@@ -82,6 +82,7 @@ class UsuarioRepository extends Repository
     {
         try {
             Transaction::open();
+            Transaction::setLogger(new LoggerTXT('log_usuario_repository.txt'));
 
             $oColumns = new Columns(
                 constant($this->activeRecord . '::DB_SCHEMA'),

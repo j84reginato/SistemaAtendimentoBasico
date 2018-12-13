@@ -37,7 +37,7 @@ class MensagemChamadoRepository extends Repository
         try {
 
             Transaction::open();
-            Transaction::setLogger(new LoggerTXT('log_chamado_repository.txt'));
+            Transaction::setLogger(new LoggerTXT('log_mensagem_chamado_repository.txt'));
 
             $oColumns = new Columns(
                 'atendimento',

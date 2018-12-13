@@ -28,7 +28,7 @@ class UsuarioFilter implements FilterInterface
         $oUsuarioForm->nome = trim(filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS));
         $oUsuarioForm->usuario = trim(filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_SPECIAL_CHARS));
         $oUsuarioForm->senha = trim(filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_SPECIAL_CHARS));
-        $oUsuarioForm->confirmarSenha = trim(filter_input(INPUT_POST, 'confirmarSenha', FILTER_SANITIZE_SPECIAL_CHARS));                
+        $oUsuarioForm->confirmarSenha = trim(filter_input(INPUT_POST, 'confirmarSenha', FILTER_SANITIZE_SPECIAL_CHARS));
         $oUsuarioForm->email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
     }
 
