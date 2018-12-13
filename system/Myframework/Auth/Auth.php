@@ -168,7 +168,7 @@ class Auth
 
         // Se houve envio de dados via POST.
         $csrfToken = filter_input(INPUT_POST, 'csrfToken', FILTER_DEFAULT);
-        if (count(filter_input_array(INPUT_POST)) > 1 && ! empty($csrfToken)) {
+        if (is_array(filter_input_array(INPUT_POST)) && count(filter_input_array(INPUT_POST)) > 1 && ! empty($csrfToken)) {
             $this->bLoggedIn = ($csrfToken == $_SESSION['csrfToken']);
         }
 
