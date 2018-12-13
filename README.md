@@ -1,4 +1,4 @@
-# ![test image size](https://github.com/j84reginato/sistema_atendimento_basico/blob/master/public/img/logo.png){:height="30px" width="30px"} Sistema de Atendimento Básico
+# <img src="https://github.com/j84reginato/sistema_atendimento_basico/blob/master/public/img/logo.png" width="30" height="30"> Sistema de Atendimento Básico
 
 ## Introdução
 
