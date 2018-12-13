@@ -24,7 +24,6 @@ CREATE TABLE `tb_contatos` (
 # Data for table "tb_contatos"
 #
 
-INSERT INTO `tb_contatos` VALUES (1,'Jonatan','teste@teste.com.br','','','teste',0,'2018-11-06 22:28:35'),(2,'Jonatan Noronha Reginato','vivigritten@yahoo.com.br','(41) 99999-5569','teste','teste',1,'2018-11-26 22:02:25'),(3,'Jonatan Noronha Reginato','vivigritten@yahoo.com.br','(41) 99999-5569','teste','teste',1,'2018-11-26 22:07:26'),(4,'Jonatan Noronha Reginato','vivigritten@yahoo.com.br','(41) 99999-5569','teste','teste',1,'2018-11-26 22:13:28'),(5,'Jonatan Noronha Reginato','vivigritten@yahoo.com.br','(41) 99999-5569','teste','teste',1,'2018-11-26 22:14:35'),(6,'Jonatan Noronha Reginato','noronha_reginato@hotmail.com','(41) 99999-5569','teste','retrgadzgf',1,'2018-11-27 09:34:56'),(7,'Jonatan Noronha Reginato','noronha_reginato@hotmail.com','(41) 99999-5569','teste','GSDGsFDs',1,'2018-11-27 09:50:55'),(8,'Jonatan Noronha Reginato','noronha_reginato@hotmail.com','(41) 99999-5569','teste','dgdzgdz',1,'2018-11-27 15:16:34'),(9,'Jonatan Noronha Reginato','noronha_reginato@hotmail.com','(41) 99999-5569','teste','rgdfgfdgfdf',1,'2018-11-27 15:18:14'),(10,'Jonatan Noronha Reginato','noronha_reginato@hotmail.com','(41) 99999-5569','dsghadfhfdh','fhgfjhgjgfdhggd',1,'2018-11-27 16:51:09'),(11,'Jonatan Noronha Reginato','noronha_reginato@hotmail.com','(41) 99999-5569','teste','gjcgfjgj',1,'2018-11-27 16:52:32'),(12,'Jonatan Noronha Reginato','noronha_reginato@hotmail.com','(41) 99999-5569','teste','tudhdgj',1,'2018-11-27 16:53:08'),(13,'Jonatan Noronha Reginato','noronha_reginato@hotmail.com','(41) 99999-5569','hngnhg','gdsfgfgfd',1,'2018-11-28 16:17:39'),(14,'Jonatan Noronha Reginato','noronha_reginato@hotmail.com','(41) 99999-5569','safadfa','effredg',1,'2018-11-28 20:18:55');
 
 #
 # Structure for table "tb_motivos_chamado"
@@ -120,7 +119,6 @@ CREATE TABLE `tb_usuarios` (
 # Data for table "tb_usuarios"
 #
 
-INSERT INTO `tb_usuarios` VALUES (1,1,'admin','Admin','admin@admin.com','$2y$10$bnG0xwDROu7PZGHeUwDuuem255u58xAGabhJabKjshM6B.xB4UgPq',1,'2018-12-05 22:46:18','2018-11-23 21:22:47'),(2,2,'atendente','Atendente','cliente@cliente.com','$2y$10$bnG0xwDROu7PZGHeUwDuuem255u58xAGabhJabKjshM6B.xB4UgPq',1,'2018-12-05 22:46:22','2018-11-23 21:22:47'),(3,3,'cliente','Cliente','atendente@atendente.com','$2y$10$bnG0xwDROu7PZGHeUwDuuem255u58xAGabhJabKjshM6B.xB4UgPq',1,'2018-12-05 22:46:28','2018-11-23 21:22:47'),(5,1,'admina','Jonatan Noronha Reginato','noronha_reginato@hotmail.com','$2y$10$bnG0xwDROu7PZGHeUwDuuem255u58xAGabhJabKjshM6B.xB4UgPq\n',1,'2018-12-05 22:44:47',NULL),(6,3,'reginato','Jonatan Noronha Reginato','noronha_reginato@hotmail.com','$2y$10$bnG0xwDROu7PZGHeUwDuuem255u58xAGabhJabKjshM6B.xB4UgPq',1,'2018-11-28 17:07:39',NULL),(7,1,'testeuser','Usuario teste','teste@teste.com.br','$2y$12$Xyz8xyLZRzC3h9VOKKJ5oeu43eJl.RfXlFQFyahx8Xbcc0pwT1cR2',1,'2018-12-06 21:14:43',NULL);
 
 #
 # Structure for table "tb_chamados"
@@ -155,7 +153,6 @@ CREATE TABLE `tb_chamados` (
 # Data for table "tb_chamados"
 #
 
-INSERT INTO `tb_chamados` VALUES (1,1,1,1,2,1,'Solicito informações sobre entrega',NULL,'2018-12-11 00:04:34',NULL),(3,6,1,1,1,1,'qwerty',NULL,'2018-12-09 23:24:44',NULL),(4,6,1,1,1,1,'qwerty',NULL,'2018-12-09 23:32:43',NULL),(5,6,1,1,1,1,'qaz',NULL,'2018-12-09 23:34:39',NULL),(6,6,1,1,1,1,'teste',NULL,'2018-12-09 23:37:44',NULL),(7,6,1,1,1,1,'qwerty',NULL,'2018-12-09 23:39:39',NULL);
 
 #
 # Structure for table "tb_mensagens_chamados"
