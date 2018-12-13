@@ -4,8 +4,8 @@
 
 Se você deseja contribuir com este projeto, não se esqueça de ler os seguintes recursos:
 
- - [Padrões de codificação](https://github.com/j84reginato)
- - [Guia do Colaborador](https://github.com/j84reginato)
+ - [Padrões de codificação](https://github.com/j84reginato/sistema_atendimento_basico)
+ - [Guia do Colaborador](https://github.com/j84reginato/sistema_atendimento_basico)
 
 ## Relatando possíveis problemas de segurança
 
@@ -14,7 +14,7 @@ Trabalharemos com você para verificar a vulnerabilidade e corrigi-la o mais rá
 
 Ao relatar problemas, forneça as seguintes informações:
 
-- Componente (s) afetados;
+- Componente(s) afetados;
 - Uma descrição que indica como reproduzir o problema;
 - Um resumo da vulnerabilidade e impacto de segurança.
 
@@ -25,13 +25,13 @@ Solicitamos que você entre em contato através do endereço de e-mail acima e f
 Seu primeiro passo é estabelecer um repositório público a partir do qual possamos *"puxar"* seu trabalho para o repositório principal.
 Recomendamos usar [GitHub](https://github.com), porque é onde o componente já está hospedado.
 
-1. Configure uma [conta do GitHub](http://github.com/), se ainda não tiver
-2. Faça *"fork"* do [repositório](http://github.com/j84reginato)
+1. Configure uma [conta do GitHub](https://github.com/), se ainda não tiver
+2. Faça *"fork"* do [repositório](https://github.com/j84reginato/sistema_atendimento_basico)
 3. Clone o repositório localmente.
 
 ```bash
-$ git clone https://github.com/j84reginato
-$ cd sistemaatendimentobasico
+$ git clone https://github.com/j84reginato/sistema_atendimento_basico.git
+$ cd sistema_atendimento_basico
 ```
 
 4. Adicione um novo repositório remoto no Git ao seu *"fork"*;
@@ -39,7 +39,7 @@ $ cd sistemaatendimentobasico
 *Substitua seu nome de usuário do GitHub no comando abaixo.*
 
 ```bash
-$ git remote add {username} git@github.com: {username}/sistemaatendimentobasico.git
+$ git remote add {username} git@github.com:{username}/sistema_atendimento_basico.git
 $ git fetch {username}
 ```
 
@@ -97,7 +97,7 @@ Delta compression using up to 2 threads.
 Compression objects: 100% (18/18), done.
 Writing objects: 100% (20/20), 8.19KiB, done.
 Total 20 (delta 12), reused 0 (delta 0)
-To ssh://git@github.com/{username}/sistemaatendimentobasico.git
+To ssh://git@github.com/{username}/sistema_atendimento_basico.git
    b5583aa..4f51698  HEAD -> master
 ```
 
@@ -130,7 +130,7 @@ $ git branch -d <branchname>
 - Remoção remota do *"branch"*
 
 ```bash
-$ git push {username}: <branchname>
+$ git push {username} :<branchname>
 ```
 
 ## Código de Conduta

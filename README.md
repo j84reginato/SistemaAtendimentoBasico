@@ -19,17 +19,17 @@ Além disso, este projeto utiliza a extensão de reescrita de URL para redirecio
 
 ### Instalando
 
-1) ++Banco de dados++
-O script da estrutura e registros essenciais do banco de dados encontra-se em path/to/install/data/sql/atendimento.sql
+1) Banco de dados
+O script da estrutura e registros essenciais do banco de dados encontra-se em `ROOT_DIR/data/sql/atendimento.sql`
 
-2) ++Configuração++
-Realize a configuração de acesso ao banco de dados em path/to/install/config/autoload/global.php
+2) Configuração
+Realize a configuração de acesso ao banco de dados em `ROOT_DIR/config/autoload/global.php`
 
 Uma vez configurado, você pode testá-lo imediatamente usando o servidor web integrado do PHP:
 
 ```bash
-$ cd path/to/install/public
-$ php -S 0.0.0.0:8080 -t path/to/install/public
+$ cd `ROOT_DIR/public`
+$ php -S 0.0.0.0:8080 -t `ROOT_DIR/public`
 ```
 
 Ou
@@ -38,18 +38,18 @@ Ou
 ```bash
 # ...
 "scripts": {
-    "serve": "php -S 0.0.0.0:8080 -t path/to/install/public"
+    "serve": "php -S 0.0.0.0:8080 -t `ROOT_DIR/public`"
 }
 ```
 
 2 - E então use o alias do composer:
 ```bash
-$ cd path/to/install/public
+$ cd `ROOT_DIR/public`
 $ composer run --timeout 0 serve
 ```
 
 Isto irá iniciar o servidor-cli na porta 8080 e ligá-lo a interface de rede.
-Você pode então visitar o site em http://localhost:8080/ - que abrirá a página de boas-vindas da aplicação.
+Você pode então visitar o site em http://localhost:8080/ - que abrirá a página inicial da aplicação.
 
 **Nota:** O servidor CLI integrado é *apenas para uso em desenvolvimento*.
 
@@ -115,10 +115,10 @@ Para configurar o Apache, configure um host virtual que aponte para o diretório
 ```apache
 <VirtualHost *:80>
     ServerName sistemaatendimentobasico
-    DocumentRoot "/path/to/sistemaatendimentobasico"
-    ErrorLog "/path/to/sistemaatendimentobasico/data/log/error_log"
-    CustomLog "/path/to/sistemaatendimentobasico/data/log/access_log" common
-    <Directory "/path/to/sistemaatendimentobasico/">
+    DocumentRoot "/`ROOT_DIR/sistemaatendimentobasico`"
+    ErrorLog "/`ROOT_DIR/sistemaatendimentobasico/data/log/error_log`"
+    CustomLog "/`ROOT_DIR/sistemaatendimentobasico/data/log/access_log`" common
+    <Directory "/`ROOT_DIR/sistemaatendimentobasico/`">
         DirectoryIndex index.php
         AllowOverride All
         Order allow,deny
@@ -138,7 +138,7 @@ No Windows deve-se adicionar a seguinte linha ao final do arquivo C:\Windows\Sys
 
 ### Nginx setup
 
-Para configurar o nginx, abra seu `/path/to/nginx/nginx.conf` e adicione uma [include directive](http://nginx.org/en/docs/ngx_core_module.html#include) no bloco `http` abaixo, se ainda não existir:
+Para configurar o nginx, abra seu `/ROOT_DIR/nginx/nginx.conf` e adicione uma [include directive](http://nginx.org/en/docs/ngx_core_module.html#include) no bloco `http` abaixo, se ainda não existir:
 
 ```nginx
 http {
@@ -147,14 +147,14 @@ http {
 }
 ```
 
-Crie um arquivo de configuração de host virtual para seu projeto em `/path/to/nginx/sites-enabled/zfapp.localhost.conf`.
+Crie um arquivo de configuração de host virtual para seu projeto em `/ROOT_DIR/nginx/sites-enabled/sistemaatendimentobasico.localhost.conf`.
 Deve ser algo como abaixo:
 
 ```nginx
 server {
     listen       80;
     server_name  sistemaatendimentobasico;
-    root         /path/to/sistemaatendimentobasico;
+    root         `/ROOT_DIR/sistemaatendimentobasico`;
 
     location / {
         index index.php;
@@ -164,7 +164,7 @@ server {
     location @php {
         # Pass the PHP requests to FastCGI server (php-fpm) on 127.0.0.1:9000
         fastcgi_pass   127.0.0.1:9000;
-        fastcgi_param  SCRIPT_FILENAME /path/to/sistemaatendimentobasico/public/index.php;
+        fastcgi_param  SCRIPT_FILENAME `/ROOT_DIR/sistemaatendimentobasico/public/index.php`;
         include fastcgi_params;
     }
 }
@@ -186,11 +186,11 @@ Agora você deve estar pronto para utilizar a aplicação!
 
 ## Contribuição
 
-Por favor, leia [CONTRIBUTING.md](https://github.com/j84reginato) para detalhes sobre o código de conduta, e o processo de envio de *pull requests*.
+Por favor, leia [CONTRIBUTING.md](https://github.com/j84reginato/sistema_atendimento_basico/CONTRIBUTING.md) para detalhes sobre o código de conduta, e o processo de envio de *pull requests*.
 
 ## Versionamento
 
-Para as versões disponíveis, veja as [tags neste repositório](https://github.com/j84reginato/tags).
+Para as versões disponíveis, veja as [tags neste repositório](https://github.com/j84reginato/sistema_atendimento_basico/tags).
 
 ## Autor
 
@@ -198,7 +198,7 @@ Para as versões disponíveis, veja as [tags neste repositório](https://github.
 
 ## Licença
 
-Consulte o arquivo [LICENSE.md](LICENSE.md) para obter detalhes.
+Consulte o arquivo [LICENSE.md](https://github.com/j84reginato/sistema_atendimento_basico/LICENSE.md) para obter detalhes.
 
 
 
