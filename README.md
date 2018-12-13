@@ -19,17 +19,17 @@ Além disso, este projeto utiliza a extensão de reescrita de URL para redirecio
 
 ### Instalando
 
-1) Banco de dados
-O script da estrutura e registros essenciais do banco de dados encontra-se em `ROOT_DIR/data/sql/atendimento.sql`
+1) **Banco de dados:**
+- O script da estrutura e registros essenciais do banco de dados encontra-se em `ROOT_DIR/data/sql/atendimento.sql`
 
-2) Configuração
-Realize a configuração de acesso ao banco de dados em `ROOT_DIR/config/autoload/global.php`
+2) **Configuração:**
+- Realize a configuração de acesso ao banco de dados em `ROOT_DIR/config/autoload/global.php`
 
 Uma vez configurado, você pode testá-lo imediatamente usando o servidor web integrado do PHP:
 
 ```bash
-$ cd `ROOT_DIR/public`
-$ php -S 0.0.0.0:8080 -t `ROOT_DIR/public`
+$ cd ROOT_DIR/public
+$ php -S 0.0.0.0:8080 -t ROOT_DIR/public
 ```
 
 Ou
@@ -38,7 +38,7 @@ Ou
 ```bash
 # ...
 "scripts": {
-    "serve": "php -S 0.0.0.0:8080 -t `ROOT_DIR/public`"
+    "serve": "php -S 0.0.0.0:8080 -t ROOT_DIR/public"
 }
 ```
 
@@ -110,15 +110,15 @@ $ docker-compose run sistemaatendimentobasico composer install
 
 ### Apache
 
-Para configurar o Apache, configure um host virtual que aponte para o diretório public/ do projeto e você estará pronto para utilizar a aplicação!
+Para configurar o Apache, configure um host virtual que aponte para o diretório `public/` do projeto e você estará pronto para utilizar a aplicação!
 
 ```apache
 <VirtualHost *:80>
     ServerName sistemaatendimentobasico
-    DocumentRoot "/`ROOT_DIR/sistemaatendimentobasico`"
-    ErrorLog "/`ROOT_DIR/sistemaatendimentobasico/data/log/error_log`"
-    CustomLog "/`ROOT_DIR/sistemaatendimentobasico/data/log/access_log`" common
-    <Directory "/`ROOT_DIR/sistemaatendimentobasico/`">
+    DocumentRoot "/ROOT_DIR/sistemaatendimentobasico"
+    ErrorLog "/ROOT_DIR/sistemaatendimentobasico/data/log/error_log"
+    CustomLog "/ROOT_DIR/sistemaatendimentobasico/data/log/access_log" common
+    <Directory "/ROOT_DIR/sistemaatendimentobasico/">
         DirectoryIndex index.php
         AllowOverride All
         Order allow,deny
@@ -129,7 +129,7 @@ Para configurar o Apache, configure um host virtual que aponte para o diretório
     </Directory>
 </VirtualHost>
 ```
-No Windows deve-se adicionar a seguinte linha ao final do arquivo C:\Windows\System32\drivers\etc\hosts:
+No Windows deve-se adicionar a seguinte linha ao final do arquivo `C:\Windows\System32\drivers\etc\hosts`:
 
 ```C:\Windows\System32\drivers\etc\hosts
 # ...
@@ -154,7 +154,7 @@ Deve ser algo como abaixo:
 server {
     listen       80;
     server_name  sistemaatendimentobasico;
-    root         `/ROOT_DIR/sistemaatendimentobasico`;
+    root         /ROOT_DIR/sistemaatendimentobasico;
 
     location / {
         index index.php;
@@ -186,7 +186,7 @@ Agora você deve estar pronto para utilizar a aplicação!
 
 ## Contribuição
 
-Por favor, leia [CONTRIBUTING.md](https://github.com/j84reginato/sistema_atendimento_basico/CONTRIBUTING.md) para detalhes sobre o código de conduta, e o processo de envio de *pull requests*.
+Por favor, leia [CONTRIBUTING.md](CONTRIBUTING.md) para detalhes sobre o código de conduta, e o processo de envio de *pull requests*.
 
 ## Versionamento
 
@@ -198,8 +198,11 @@ Para as versões disponíveis, veja as [tags neste repositório](https://github.
 
 ## Licença
 
-Consulte o arquivo [LICENSE.md](https://github.com/j84reginato/sistema_atendimento_basico/LICENSE.md) para obter detalhes.
+Consulte o arquivo [LICENSE.md](LICENSE.md) para obter detalhes.
 
 
-
+>
+>
+>
+>
 >**"O homem que trabalha somente pelo que recebe, não merece ser pago pelo que faz"** - *Abraham Lincoln*
