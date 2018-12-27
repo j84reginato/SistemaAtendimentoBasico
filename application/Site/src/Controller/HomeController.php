@@ -36,7 +36,9 @@ class HomeController
         $oCaptchaBuilderService = new Captcha();
 
         $oView = $this->oApp->getView();
-        $oView->setData(['captcha' => $oCaptchaBuilderService]);
+        $oView->setData([
+            'captcha' => $oCaptchaBuilderService
+        ]);
         $oView->htmlView();
     }
 

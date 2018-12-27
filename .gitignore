@@ -1,4 +1,5 @@
 .vagrant/
 /nbproject/
 /data/cache/*
+/data/log/*
 /vendor/
