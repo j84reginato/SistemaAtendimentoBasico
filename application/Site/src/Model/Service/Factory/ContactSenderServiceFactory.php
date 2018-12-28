@@ -9,7 +9,7 @@
  */
 namespace Site\Model\Service\Factory;
 
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 use Site\Model\Checker\Factory\ContatoCheckerFactory;
 use Site\Model\Entity\Factory\ContatoEntityFactory;
 use Site\Model\Filter\Factory\ContatoFilterFactory;

@@ -10,14 +10,14 @@
 namespace Atendimento\Model\Repository;
 
 use Exception;
-use Myframework\Database\Columns;
-use Myframework\Database\Criteria;
-use Myframework\Database\Expression;
-use Myframework\Database\Filter;
-use Myframework\Database\Join;
-use Myframework\Database\Transaction;
-use Myframework\Log\LoggerTXT;
-use Myframework\Mvc\Model\Repository\Repository;
+use j84Reginato\MyFramework\Database\Columns;
+use j84Reginato\MyFramework\Database\Criteria;
+use j84Reginato\MyFramework\Database\Expression;
+use j84Reginato\MyFramework\Database\Filter;
+use j84Reginato\MyFramework\Database\Join;
+use j84Reginato\MyFramework\Database\Transaction;
+use j84Reginato\MyFramework\Log\LoggerTXT;
+use j84Reginato\MyFramework\Mvc\Model\Repository\Repository;
 use const ATENDENTE;
 use const CLIENTE;
 

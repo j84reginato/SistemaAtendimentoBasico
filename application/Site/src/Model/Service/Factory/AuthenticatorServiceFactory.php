@@ -9,7 +9,7 @@
  */
 namespace Site\Model\Service\Factory;
 
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 use Site\Model\Checker\Factory\SessionCheckerFactory;
 use Site\Model\Filter\Factory\SessionFilterFactory;
 use Site\Model\Form\Factory\SessionFormFactory;

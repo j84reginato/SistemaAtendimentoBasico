@@ -10,7 +10,7 @@
 namespace Atendimento\Controller;
 
 use Atendimento\Model\Service\MessageSenderService;
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 
 /**
  * MensagemController.

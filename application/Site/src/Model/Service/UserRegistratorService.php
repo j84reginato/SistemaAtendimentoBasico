@@ -10,7 +10,7 @@
 namespace Site\Model\Service;
 
 use Exception;
-use Myframework\Database\Transaction;
+use j84Reginato\MyFramework\Database\Transaction;
 use Site\Model\Checker\UsuarioChecker;
 use Site\Model\Entity\UsuarioEntity;
 use Site\Model\Filter\UsuarioFilter;

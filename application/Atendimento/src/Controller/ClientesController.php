@@ -9,7 +9,7 @@
  */
 namespace Atendimento\Controller;
 
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 
 /**
  * ClientesController.

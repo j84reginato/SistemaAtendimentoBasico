@@ -9,7 +9,7 @@
  */
 namespace Atendimento\Model\Form\Factory;
 
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 use Atendimento\Model\Form\ChamadoForm;
 
 /**

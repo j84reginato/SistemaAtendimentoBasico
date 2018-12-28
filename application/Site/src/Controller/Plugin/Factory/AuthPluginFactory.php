@@ -9,7 +9,7 @@
  */
 namespace Site\Controller\Plugin\Factory;
 
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 use Site\Controller\Plugin\AuthPlugin;
 
 /**

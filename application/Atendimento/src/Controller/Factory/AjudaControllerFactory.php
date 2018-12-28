@@ -11,7 +11,7 @@ namespace Atendimento\Controller\Factory;
 
 use Atendimento\Controller\AjudaController;
 use Atendimento\Controller\Plugin\Factory\AuthPluginFactory;
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 
 /**
  * Classe responsável por instanciar o controlador AjudaController.

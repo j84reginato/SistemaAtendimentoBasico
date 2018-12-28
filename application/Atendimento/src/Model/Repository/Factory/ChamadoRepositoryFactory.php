@@ -9,7 +9,7 @@
  */
 namespace Atendimento\Model\Repository\Factory;
 
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 use Atendimento\Model\Entity\ChamadoEntity;
 use Atendimento\Model\Repository\ChamadoRepository;
 

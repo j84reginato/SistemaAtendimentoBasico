@@ -11,8 +11,8 @@ namespace Atendimento\Model\Service;
 
 use Atendimento\Model\Entity\ChamadoEntity;
 use Exception;
-use Myframework\Database\Transaction;
-use Myframework\Request\Request;
+use j84Reginato\MyFramework\Database\Transaction;
+use j84Reginato\MyFramework\Request\Request;
 use Site\Model\Repository\UsuarioRepository;
 
 /**

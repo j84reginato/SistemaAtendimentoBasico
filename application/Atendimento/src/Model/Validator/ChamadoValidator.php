@@ -10,7 +10,7 @@
 namespace Atendimento\Model\Validator;
 
 use Exception;
-use Myframework\Mvc\Model\Form\FormInterface;
+use j84Reginato\MyFramework\Mvc\Model\Form\FormInterface;
 
 /**
  * ChamadoValidator.

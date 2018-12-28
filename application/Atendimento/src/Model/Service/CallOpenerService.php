@@ -15,7 +15,7 @@ use Atendimento\Model\Filter\ChamadoFilter;
 use Atendimento\Model\Form\ChamadoForm;
 use Atendimento\Model\Validator\ChamadoValidator;
 use Exception;
-use Myframework\Database\Transaction;
+use j84Reginato\MyFramework\Database\Transaction;
 
 /**
  * Serviço responsável por prover métodos para a abertura de um chamado.

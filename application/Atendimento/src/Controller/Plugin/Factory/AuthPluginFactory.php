@@ -10,7 +10,7 @@
 namespace Atendimento\Controller\Plugin\Factory;
 
 use Atendimento\Controller\Plugin\AuthPlugin;
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 
 /**
  * Classe responsável por instanciar o plugin AuthPlugin.

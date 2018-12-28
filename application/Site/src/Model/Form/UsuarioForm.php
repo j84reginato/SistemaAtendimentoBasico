@@ -9,7 +9,7 @@
  */
 namespace Site\Model\Form;
 
-use Myframework\Mvc\Model\Form\AbstractForm;
+use j84Reginato\MyFramework\Mvc\Model\Form\AbstractForm;
 
 class UsuarioForm extends AbstractForm
 {

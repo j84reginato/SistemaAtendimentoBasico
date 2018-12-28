@@ -9,7 +9,7 @@
  */
 namespace Site\Model\Form\Factory;
 
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 use Site\Model\Form\UsuarioForm;
 
 /**

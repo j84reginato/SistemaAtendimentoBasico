@@ -9,7 +9,7 @@
  */
 namespace Atendimento\Model\Form;
 
-use Myframework\Mvc\Model\Form\AbstractForm;
+use j84Reginato\MyFramework\Mvc\Model\Form\AbstractForm;
 
 class MensagemChamadoForm extends AbstractForm
 {

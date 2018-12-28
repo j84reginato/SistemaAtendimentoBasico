@@ -14,7 +14,7 @@ use Atendimento\Controller\Plugin\Factory\AuthPluginFactory;
 use Atendimento\Model\Service\Factory\CallAssignerServiceFactory;
 use Atendimento\Model\Service\Factory\CallLoaderServiceFactory;
 use Atendimento\Model\Service\Factory\CallOpenerServiceFactory;
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 
 /**
  * Classe responsável por instanciar o controlador ChamadoController.

@@ -11,7 +11,7 @@ namespace Atendimento\Model\Service\Factory;
 
 use Atendimento\Model\Entity\Factory\ChamadoEntityFactory;
 use Atendimento\Model\Service\CallAssignerService;
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 use Site\Model\Repository\Factory\UsuarioRepositoryFactory;
 
 /**

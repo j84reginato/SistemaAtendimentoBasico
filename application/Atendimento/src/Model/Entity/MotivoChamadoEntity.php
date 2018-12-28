@@ -9,7 +9,7 @@
  */
 namespace Atendimento\Model\Entity;
 
-use Myframework\Mvc\Model\Entity\AbstractEntity;
+use j84Reginato\MyFramework\Mvc\Model\Entity\AbstractEntity;
 
 /**
  * MotivoChamadoEntity.

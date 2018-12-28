@@ -12,7 +12,7 @@ namespace Atendimento\Controller;
 use Atendimento\Model\Service\CallAssignerService;
 use Atendimento\Model\Service\CallLoaderService;
 use Atendimento\Model\Service\CallOpenerService;
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 use const ADMINISTRADOR;
 use const APP_ROOT;
 use const CLIENTE;

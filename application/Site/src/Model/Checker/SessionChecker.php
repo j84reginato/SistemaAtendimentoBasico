@@ -10,8 +10,8 @@
 namespace Site\Model\Checker;
 
 use Exception;
-use Myframework\Mvc\Model\Checker\CheckerInterface;
-use Myframework\Mvc\Model\Form\FormInterface;
+use j84Reginato\MyFramework\Mvc\Model\Checker\CheckerInterface;
+use j84Reginato\MyFramework\Mvc\Model\Form\FormInterface;
 
 /**
  * SessionChecker.

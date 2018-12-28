@@ -9,7 +9,7 @@
  */
 namespace Site\Controller\Plugin;
 
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 use const APP_ROOT;
 
 /**

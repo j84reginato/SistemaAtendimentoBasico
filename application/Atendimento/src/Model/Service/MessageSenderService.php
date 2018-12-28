@@ -15,7 +15,7 @@ use Atendimento\Model\Filter\MensagemChamadoFilter;
 use Atendimento\Model\Form\MensagemChamadoForm;
 use Atendimento\Model\Validator\MensagemChamadoValidator;
 use Exception;
-use Myframework\Database\Transaction;
+use j84Reginato\MyFramework\Database\Transaction;
 
 /**
  * Serviço responsável por prover métodos para se permitir o envio de uma

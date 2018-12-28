@@ -9,8 +9,8 @@
  */
 namespace Atendimento\Model\Filter;
 
-use Myframework\Mvc\Model\Filter\FilterInterface;
-use Myframework\Mvc\Model\Form\FormInterface;
+use j84Reginato\MyFramework\Mvc\Model\Filter\FilterInterface;
+use j84Reginato\MyFramework\Mvc\Model\Form\FormInterface;
 
 /**
  * MensagemChamadoFilter.

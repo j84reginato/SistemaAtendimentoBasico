@@ -12,7 +12,7 @@ namespace Atendimento\Model\Service\Factory;
 use Atendimento\Model\Repository\Factory\ChamadoRepositoryFactory;
 use Atendimento\Model\Repository\Factory\MensagemChamadoRepositoryFactory;
 use Atendimento\Model\Service\CallLoaderService;
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 
 /**
  * Classe responsável por instanciar o serviço CallLoaderService.

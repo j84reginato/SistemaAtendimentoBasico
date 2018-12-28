@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e71b866d3d76bbd2b8076dc01373796",
+    "content-hash": "a28aa416d48a034402d29ccccc8c500c",
     "packages": [
         {
             "name": "gregwar/captcha",
@@ -60,6 +60,49 @@
             "time": "2018-08-17T22:57:28+00:00"
         },
         {
+            "name": "j84reginato/myframework",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/j84reginato/MyFramework.git",
+                "reference": "5dacff6573aafc8d1e7a27e084c0eeb798129587"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/j84reginato/MyFramework/zipball/5dacff6573aafc8d1e7a27e084c0eeb798129587",
+                "reference": "5dacff6573aafc8d1e7a27e084c0eeb798129587",
+                "shasum": ""
+            },
+            "require": {
+                "gregwar/captcha": "1.*",
+                "php": "^5.6 || ^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "j84Reginato\\MyFramework\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonatan Noronha Reginato",
+                    "email": "noronha_reginato@hotmail.com"
+                }
+            ],
+            "description": "Esta aplicação trata-se de um microframework MVC simples e leve para uso em projetos da baixa complexidade.",
+            "homepage": "http://jonatan.reginato.myframework/",
+            "keywords": [
+                "dependency injection",
+                "factory",
+                "mvc"
+            ],
+            "time": "2018-12-27T18:46:32+00:00"
+        },
+        {
             "name": "symfony/finder",
             "version": "v4.2.1",
             "source": {
@@ -112,7 +155,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "j84reginato/myframework": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

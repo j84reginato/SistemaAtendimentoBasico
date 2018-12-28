@@ -9,7 +9,7 @@
  */
 namespace Site\Model\Repository\Factory;
 
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 use Site\Model\Entity\UsuarioEntity;
 use Site\Model\Repository\UsuarioRepository;
 

@@ -12,7 +12,7 @@ namespace Atendimento\Controller\Factory;
 use Atendimento\Controller\MensagemController;
 use Atendimento\Controller\Plugin\Factory\AuthPluginFactory;
 use Atendimento\Model\Service\Factory\MessageSenderServiceFactory;
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 
 /**
  * Classe responsável por instanciar o controlador MensagemController.

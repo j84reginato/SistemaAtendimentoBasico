@@ -15,7 +15,7 @@ use Atendimento\Model\Filter\Factory\MensagemChamadoFilterFactory;
 use Atendimento\Model\Form\Factory\MensagemChamadoFormFactory;
 use Atendimento\Model\Service\MessageSenderService;
 use Atendimento\Model\Validator\Factory\MensagemChamadoValidatorFactory;
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 
 /**
  * Classe responsável por instanciar o serviço MessageSenderService.

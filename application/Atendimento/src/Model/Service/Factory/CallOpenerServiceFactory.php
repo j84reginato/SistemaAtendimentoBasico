@@ -15,7 +15,7 @@ use Atendimento\Model\Filter\Factory\ChamadoFilterFactory;
 use Atendimento\Model\Form\Factory\ChamadoFormFactory;
 use Atendimento\Model\Service\CallOpenerService;
 use Atendimento\Model\Validator\Factory\ChamadoValidatorFactory;
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 
 /**
  * Classe responsável por instanciar o serviço CallOpenerService.

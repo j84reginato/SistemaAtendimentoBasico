@@ -9,8 +9,8 @@
  */
 namespace Site\Controller;
 
-use Myframework\Application\Application;
-use Myframework\Captcha\Captcha;
+use j84Reginato\MyFramework\Application\Application;
+use j84Reginato\MyFramework\Captcha\Captcha;
 use Site\Model\Service\AuthenticatorService;
 
 /**

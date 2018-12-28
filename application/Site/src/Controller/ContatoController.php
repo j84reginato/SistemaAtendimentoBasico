@@ -9,7 +9,7 @@
  */
 namespace Site\Controller;
 
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 use Site\Model\Service\ContactSenderService;
 
 /**

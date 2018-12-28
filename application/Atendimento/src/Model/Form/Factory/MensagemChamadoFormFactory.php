@@ -10,7 +10,7 @@
 namespace Atendimento\Model\Form\Factory;
 
 use Atendimento\Model\Form\MensagemChamadoForm;
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 
 /**
  * Classe responsável por instanciar a entidade MensagemChamadoForm.

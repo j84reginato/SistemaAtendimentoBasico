@@ -11,7 +11,7 @@ namespace Atendimento\Model\Repository\Factory;
 
 use Atendimento\Model\Entity\MensagemChamadoEntity;
 use Atendimento\Model\Repository\MensagemChamadoRepository;
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 
 /**
  * Classe responsável por instanciar o repositório MensagemChamadoRepository.

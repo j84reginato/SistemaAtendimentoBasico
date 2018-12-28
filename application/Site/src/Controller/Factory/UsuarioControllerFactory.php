@@ -9,7 +9,7 @@
  */
 namespace Site\Controller\Factory;
 
-use Myframework\Application\Application;
+use j84Reginato\MyFramework\Application\Application;
 use Site\Controller\Plugin\Factory\AuthPluginFactory;
 use Site\Controller\UsuarioController;
 use Site\Model\Service\Factory\UserRegistratorServiceFactory;

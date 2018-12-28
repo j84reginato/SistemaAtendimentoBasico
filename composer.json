@@ -1,5 +1,5 @@
 {
-    "name": "Sistema de Atendimento Básico",
+    "name": "j84reginato/sistema-atendimento-basico",
     "description": "Protótipo de um sistema de atendimento básico desenvolvido para uma etapa do Processo Seletivo Analista Desenvolvimento FullStack PHP da empresa Madeira Madeira.",
     "type": "project",
     "authors": [
@@ -8,10 +8,10 @@
             "email": "noronha_reginato@hotmail.com"
         }
     ],
-    "license": "N/A",
+    "license": "MIT",
     "keywords": [
         "atendimento",
-        "MVC+S",
+        "MVC",
         "Factory",
         "Dependency Injection",
         "Madeira Madeira"
@@ -21,13 +21,13 @@
     "prefer-stable": true,
     "require": {
         "php": "^5.6 || ^7.0",
-        "gregwar/captcha": "1.*"
+        "gregwar/captcha": "1.*",
+        "j84reginato/myframework": "dev-master"
     },
     "require-dev": {
     },
     "autoload": {
         "psr-4": {
-            "Myframework\\": "system/Myframework/",
             "Site\\": "application/Site/src/",
             "Atendimento\\": "application/Atendimento/src/"
         }
